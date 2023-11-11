@@ -1,0 +1,42 @@
+{
+    "manifest_version": 3,
+    "name": "PF2 Easy Spellcards",
+    "description": "Injects styling and additional functionality to the PF2Easy Spellbook printables",
+    "version": "1.0",
+    "author": "Devin Adams",
+    "action": {
+        "default_icon": {
+            "18": "static/pf2e16.png",
+            "24": "static/pf2e24.png",
+            "32": "static/pf2e32.png"
+        }
+    },
+    "permissions": [
+        "scripting",
+        "activeTab",
+        "tabs"
+    ],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "https://pf2easy.com/spellbook/**"
+            ],
+            "css": [
+                "style.css"
+            ]
+        }
+    ],
+    "web_accessible_resources": [
+        {
+            "resources": [
+                "content-script.js"
+            ],
+            "matches": [
+                "https://pf2easy.com/*"
+            ]
+        }
+    ]
+}
